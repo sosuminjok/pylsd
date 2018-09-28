@@ -5,7 +5,7 @@
 # @Link    : https://github.com/primetang/pylsd
 # @Version : 0.0.1
 
-from .bindings.lsd_ctypes import *
+from pylsd.bindings.lsd_ctypes import *
 
 
 def lsd(src):
@@ -14,6 +14,7 @@ def lsd(src):
 
     temp = os.path.abspath(str(np.random.randint(
         1, 1000000)) + 'ntl.txt').replace('\\', '/')
+    temp = temp.encode('utf-8')
 
     lens = len(src)
     src = (ctypes.c_double * lens)(*src)
